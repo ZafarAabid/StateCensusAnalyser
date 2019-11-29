@@ -5,6 +5,7 @@ import com.opencsv.bean.CsvToBeanBuilder;
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
 import java.util.Iterator;
 
@@ -14,7 +15,7 @@ public class StateCensusAnalyser {
 
     private static final String CSV_FILE_PATH = "/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/StateCode.csv";
 
-    public int getRecordCount() throws IOException {
+    public int getRecordCount() throws IOException, CustomException {
         int count=0;
         try
         {
@@ -27,8 +28,9 @@ public class StateCensusAnalyser {
                 count++;
             }
         }
-        catch (IOException e)
-        {e.printStackTrace();}
+        catch (NoSuchFileException e){
+            throw new CustomException(CustomException.ExceptionType.NO_SUCH_FILE,"PLease Enter Proper File Path",e);
+        }
         return count;
     }
 }
