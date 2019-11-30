@@ -13,13 +13,13 @@ public class StateCensusData {
         this.densityPerSqKm = densityPerSqKm;
     }
 
-    @CsvBindByName
+    @CsvBindByName(column = "State")
     private String state;
-    @CsvBindByName
+    @CsvBindByName(column = "Population")
     private int population;
-    @CsvBindByName
+    @CsvBindByName(column = "AreaInSqKm")
     private int areaInSqKm;
-    @CsvBindByName
+    @CsvBindByName(column = "DensityPerSqKm")
     private int densityPerSqKm;
 
 

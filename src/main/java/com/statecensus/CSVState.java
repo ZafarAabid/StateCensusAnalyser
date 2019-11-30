@@ -4,13 +4,13 @@ import com.opencsv.bean.CsvBindByName;
 
 public class CSVState {
 
-    @CsvBindByName
+    @CsvBindByName(column = "SrNo")
     private int SrNo;
-    @CsvBindByName
+    @CsvBindByName(column = "StateName")
     private String StateName;
-    @CsvBindByName
+    @CsvBindByName(column = "TIN")
      private String TIN;
-    @CsvBindByName
+    @CsvBindByName(column = "StateCode")
      private String StateCode;
 
     public CSVState() {}
