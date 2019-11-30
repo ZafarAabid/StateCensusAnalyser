@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.statecensus.StateCensusAnalyserTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-11-29T13:32:44" hostname="FH400" time="0.146">
+<testsuite name="com.statecensus.StateCensusAnalyserTests" tests="3" skipped="0" failures="0" errors="0" timestamp="2019-11-30T05:40:31" hostname="FH400" time="0.343">
   <properties/>
-  <testcase name="WhenReadFile_CountRecords_ifCorrect_ShouldReturnTrue" classname="com.statecensus.StateCensusAnalyserTests" time="0.146"/>
+  <testcase name="WhenReadFile_ifFileNameIsCorrect_ButExtensionIsNot_ShouldThrowException" classname="com.statecensus.StateCensusAnalyserTests" time="0.282"/>
+  <testcase name="WhenReadFile_CountRecords_ifCorrect_ShouldReturnTrue" classname="com.statecensus.StateCensusAnalyserTests" time="0.022"/>
+  <testcase name="WhenReadFile_ifFileNameIsNotCorrect_ShouldThrowException" classname="com.statecensus.StateCensusAnalyserTests" time="0.016"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

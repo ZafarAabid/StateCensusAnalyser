@@ -2,6 +2,8 @@ package com.statecensus;
 
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
+
+import javax.naming.NameNotFoundException;
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
@@ -28,9 +30,15 @@ public class StateCensusAnalyser {
                 count++;
             }
         }
+
         catch (NoSuchFileException e){
             throw new CustomException(CustomException.ExceptionType.NO_SUCH_FILE,"PLease Enter Proper File Path",e);
         }
+        catch (RuntimeException e)
+        {
+            throw new CustomException(CustomException.ExceptionType.BINDING_PROBLEM_AT_RUNTIME,"binding of file to Object failed");
+        }
+
         return count;
     }
 }
