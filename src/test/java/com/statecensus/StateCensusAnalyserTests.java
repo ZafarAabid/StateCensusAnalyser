@@ -140,5 +140,61 @@ public class StateCensusAnalyserTests {
             Assert.assertEquals(CustomException.ExceptionType.NO_SUCH_FILE,e.type);
         }
     }
-    
+
+    @Test
+    public void WhenReadFile_CountRecordsOfCensus_ifFileNameIsCorrect_butExtensionIsNotCorrecct_ShouldThrowException() throws IOException, CustomException {
+        System.out.println("WhenReadFile_CountRecordsOfCensus_ifFileNameIsCorrect_butExtensionIsNotCorrecct_ShouldThrowException");
+
+        StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
+        try {
+            Assert.assertEquals(29, stateCensusAnalyser.getRecordCountForCensus("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/StateCensusData.txt"));
+        }catch (CustomException e)
+        {
+            System.out.println("NO_SUCH_FILE");
+            Assert.assertEquals(CustomException.ExceptionType.NO_SUCH_FILE,e.type);
+        }
+
+    }
+
+    @Test
+    public void WhenReadFile_CountRecordsOfCensus_ifFileNameIsCorrect_butDelimeterIsNotCorrecct_ShouldThrowException() throws IOException, CustomException {
+        System.out.println("WhenReadFile_CountRecordsOfCensus_ifFileNameIsCorrect_butDelimeterIsNotCorrecct_ShouldThrowException");
+
+        StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
+        try {
+            Assert.assertEquals(29, stateCensusAnalyser.getRecordCountForCensus("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/StateCensusData.csv"));
+        }catch (CustomException e)
+        {
+            if(e.type.toString().equals("NO_SUCH_FILE")) {
+                System.out.println("NO_SUCH_FILE");
+                Assert.assertEquals(CustomException.ExceptionType.NO_SUCH_FILE, e.type);
+            }
+            else if(e.type.toString().equals("BINDING_PROBLEM_AT_RUNTIME")) {
+            System.out.println("BINDING_PROBLEM_AT_RUNTIME");
+            Assert.assertEquals(CustomException.ExceptionType.BINDING_PROBLEM_AT_RUNTIME, e.type);
+        }
+        }
+
+    }
+
+    @Test
+    public void WhenReadFile_CountRecordsOfCensus_ifFileNameIsCorrect_butHeaderIsNotCorrecct_ShouldThrowException() throws IOException, CustomException {
+        System.out.println("WhenReadFile_CountRecordsOfCensus_ifFileNameIsCorrect_butHeaderIsNotCorrecct_ShouldThrowException");
+
+        StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
+        try {
+            Assert.assertEquals(29, stateCensusAnalyser.getRecordCountForCensus("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/State-Census-Data.csv"));
+        }catch (CustomException e)
+        {
+            if(e.type.toString().equals("NO_SUCH_FILE")) {
+                System.out.println("NO_SUCH_FILE");
+                Assert.assertEquals(CustomException.ExceptionType.NO_SUCH_FILE, e.type);
+            }
+            else if(e.type.toString().equals("BINDING_PROBLEM_AT_RUNTIME")) {
+                System.out.println("BINDING_PROBLEM_AT_RUNTIME");
+                Assert.assertEquals(CustomException.ExceptionType.BINDING_PROBLEM_AT_RUNTIME, e.type);
+            }
+        }
+
+    }
 }

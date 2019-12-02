@@ -53,6 +53,7 @@ public class StateCensusAnalyser {
 
     public int getRecordCountForCensus(String path) throws IOException, CustomException {
         int count=0;
+        char seperator='|';
         try
         {
             Census_FILE_PATH= path;
@@ -62,7 +63,9 @@ public class StateCensusAnalyser {
             while(csvStateIterator.hasNext())
             {
 
-                StateCensusData csvUser = csvStateIterator.next();
+                StateCensusData censusData = csvStateIterator.next();
+                System.out.println(censusData.getState());
+                System.out.println(censusData.getDensityPerSqKm());
                 count++;
             }
         }
@@ -75,5 +78,7 @@ public class StateCensusAnalyser {
         }
         return count;
     }
+
+
 
 }
