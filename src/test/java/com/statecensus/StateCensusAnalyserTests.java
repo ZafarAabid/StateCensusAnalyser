@@ -104,11 +104,25 @@ public class StateCensusAnalyserTests {
                 Assert.assertEquals(CustomException.ExceptionType.BINDING_PROBLEM_AT_RUNTIME, e.type);
             }
             else{
-                System.out.println("asdasdadasdadadasd"+e.type);
+                System.out.println("EXCEPTION:"+e.type);
                 }
 
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+    //----------------------------------------------------------------------------------------------
+
+    @Test
+    public void WhenReadFile_CountRecordsOfCensus_ifCorrect_ShouldReturnTrue() throws IOException, CustomException {
+        System.out.println("WhenReadFile_CountRecordsOfCensus_ifCorrect_ShouldReturnTrue");
+
+        StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
+        try {
+            Assert.assertEquals(29, stateCensusAnalyser.getRecordCountForCensus("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/StateCensusData.csv"));
+        }catch (CustomException e)
+        {
+            System.out.println(e.getMessage());
         }
     }
     

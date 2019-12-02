@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.statecensus.StateCensusAnalyserTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-11-30T12:24:06" hostname="FH400" time="0.147">
+<testsuite name="com.statecensus.StateCensusAnalyserTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-02T04:33:11" hostname="FH400" time="0.293">
   <properties/>
-  <testcase name="WhenReadFile_CountRecords_ifCorrect_ShouldReturnTrue" classname="com.statecensus.StateCensusAnalyserTests" time="0.147"/>
+  <testcase name="WhenReadFile_CountRecordsOfCensus_ifCorrect_ShouldReturnTrue" classname="com.statecensus.StateCensusAnalyserTests" time="0.293"/>
   <system-out><![CDATA[WhenReadFile_CountRecords_ifCorrect_ShouldReturnTrue
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
