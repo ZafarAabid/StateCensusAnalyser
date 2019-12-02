@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.statecensus.StateCensusAnalyserTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-02T04:33:11" hostname="FH400" time="0.293">
+<testsuite name="com.statecensus.StateCensusAnalyserTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-02T05:12:22" hostname="FH400" time="0.017">
   <properties/>
-  <testcase name="WhenReadFile_CountRecordsOfCensus_ifCorrect_ShouldReturnTrue" classname="com.statecensus.StateCensusAnalyserTests" time="0.293"/>
-  <system-out><![CDATA[WhenReadFile_CountRecords_ifCorrect_ShouldReturnTrue
+  <testcase name="WhenReadFile_CountRecordsOfCensus_ifFileNameIsNotCorrect_ShouldThrowException" classname="com.statecensus.StateCensusAnalyserTests" time="0.017"/>
+  <system-out><![CDATA[WhenReadFile_CountRecordsOfCensus_ifFileNameIsNotCorrect_ShouldThrowException
+NO_SUCH_FILE
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

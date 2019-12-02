@@ -32,12 +32,13 @@ public class StateCensusAnalyserTests {
     @Test
     public void WhenReadFile_ifFileNameIsCorrect_ButExtensionIsNot_ShouldThrowException() {
         System.out.println("WhenReadFile_ifFileNameIsCorrect_ButExtensionIsNot_ShouldThrowException");
-        StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser("home/user/workspace/IndianStateCensusAnalyser/src/main/resources/StateCode123.txt");
+        StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/StateCode.pdf");
         try {
             Assert.assertEquals(37,stateCensusAnalyser.getRecordCount());
         }
         catch (CustomException e)
         {
+            System.out.println("NO_SUCH_FILE issue");
                 Assert.assertEquals(CustomException.ExceptionType.NO_SUCH_FILE, e.type);
         } catch (IOException e) {
             e.printStackTrace();
@@ -123,6 +124,20 @@ public class StateCensusAnalyserTests {
         }catch (CustomException e)
         {
             System.out.println(e.getMessage());
+        }
+    }
+
+    @Test
+    public void WhenReadFile_CountRecordsOfCensus_ifFileNameIsNotCorrect_ShouldThrowException() throws IOException, CustomException {
+        System.out.println("WhenReadFile_CountRecordsOfCensus_ifFileNameIsNotCorrect_ShouldThrowException");
+
+        StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
+        try {
+            Assert.assertEquals(29, stateCensusAnalyser.getRecordCountForCensus("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/StateCensusData123.csv"));
+        }catch (CustomException e)
+        {
+            System.out.println("NO_SUCH_FILE");
+            Assert.assertEquals(CustomException.ExceptionType.NO_SUCH_FILE,e.type);
         }
     }
     
