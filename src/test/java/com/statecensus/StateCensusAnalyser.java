@@ -2,9 +2,6 @@ package com.statecensus;
 
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
-
-import javax.naming.NameNotFoundException;
-import javax.swing.plaf.nimbus.State;
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
@@ -15,24 +12,16 @@ import java.util.Iterator;
 public class StateCensusAnalyser {
 
 
-    private CsvToBean csvToBean;
+//    private CsvToBean csvToBean;
 
     public StateCensusAnalyser() {
     }
-    public StateCensusAnalyser(String CSV_FILE_PATH) {
-        this.CSV_FILE_PATH=CSV_FILE_PATH;
-    }
-    private String CSV_FILE_PATH = "";
-    private String Census_FILE_PATH = "";
 
-
-    public int getRecordCount() throws IOException, CustomException {
+    public int getRecordCount(String path) throws IOException, CustomException {
         int count=0;
         try
         {
-            Reader reader= Files.newBufferedReader(Paths.get(CSV_FILE_PATH));
-            CsvToBean csvToBean= new CsvToBeanBuilder(reader).withType(CSVState.class).withIgnoreLeadingWhiteSpace(true).build();
-            Iterator<CSVState> csvStateIterator = csvToBean.iterator();
+            Iterator<CSVState> csvStateIterator= createBuilder(path,CSVState.class);
             while(csvStateIterator.hasNext())
             {
                 csvStateIterator.next();
@@ -51,15 +40,11 @@ public class StateCensusAnalyser {
         return count;
     }
 
-    public int getRecordCountForCensus(String path) throws IOException, CustomException {
+    public int getRecordCountForCensus(String path) throws IOException, CustomException, ClassNotFoundException {
         int count=0;
-        char seperator='|';
         try
         {
-            Census_FILE_PATH= path;
-            Reader reader= Files.newBufferedReader(Paths.get(Census_FILE_PATH));
-            CsvToBean csvToBean= new CsvToBeanBuilder(reader).withType(StateCensusData.class).withIgnoreLeadingWhiteSpace(true).build();
-            Iterator<StateCensusData> csvStateIterator = csvToBean.iterator();
+            Iterator<StateCensusData> csvStateIterator= createBuilder(path,StateCensusData.class);
             while(csvStateIterator.hasNext())
             {
 
@@ -79,6 +64,13 @@ public class StateCensusAnalyser {
         return count;
     }
 
+    public <T>Iterator createBuilder(String path ,T className ) throws IOException {
 
+        Reader reader= Files.newBufferedReader(Paths.get(path));
+        CsvToBean csvToBean= new CsvToBeanBuilder(reader).withType((Class) className).withIgnoreLeadingWhiteSpace(true).build();
+        Iterator  csvIterator = csvToBean.iterator();
+        System.out.println(csvIterator.getClass());
+        return csvIterator;
+    }
 
 }
