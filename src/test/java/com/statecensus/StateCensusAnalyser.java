@@ -26,11 +26,8 @@ public class StateCensusAnalyser {
                 censusDataList.add(censusData);
                 count++;
             }
-
             return censusDataList;
         }
-
-
         catch (NoSuchFileException e){
             throw new CustomException(CustomException.ExceptionType.NO_SUCH_FILE,"PLease Enter Proper File Path",e);
         }
@@ -48,8 +45,15 @@ public class StateCensusAnalyser {
         Iterator  csvIterator = csvToBean.iterator();
         return csvIterator;
     }
+    public void sortThisListBasedOnStateName(List<CensusData> censusList) {
+        Comparator<CensusData> c = (s1, s2) -> s1.getStateName().compareTo(s2.getStateName());
+        censusList.sort(c);
+    }
 
-
+    public void sortThisListBasedOnPopulation(List<CensusData> censusList) {
+        Comparator<CensusData> c = (s1, s2) -> (int) ((s2.getPopulation()) - (s1.getPopulation()));
+        censusList.sort(c);
+    }
 
      Boolean writeToGson(List container) throws IOException {
         try {

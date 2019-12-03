@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 
 public class StateCensusAnalyserTests {
@@ -220,8 +221,36 @@ public class StateCensusAnalyserTests {
         StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
         try {
             List censusDatalist=stateCensusAnalyser.getRecordCount("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/StateCensusData.csv",CensusData.class);
-            Collections.sort(censusDatalist, Comparator.comparing(CensusData::getStateName));
+            stateCensusAnalyser.sortThisListBasedOnStateName(censusDatalist);
+            Iterator iterator=censusDatalist.iterator();
+            while (iterator.hasNext())
+            {
+                CensusData censusData = (CensusData) iterator.next();
+                System.out.println(censusData.getStateName());
+                System.out.println(censusData.getPopulation());
+            }
+            Assert.assertTrue(stateCensusAnalyser.writeToGson(censusDatalist));
 
+        }catch (CustomException e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }
+    @Test
+    public void WhenReadFile_CountRecordsOfCensus_SortByPopulation_ReturnTrue() throws IOException {
+        System.out.println("WhenReadFile_CountRecordsOfCensus_SortByPopulation_ReturnTrue");
+
+        StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
+        try {
+            List censusDatalist=stateCensusAnalyser.getRecordCount("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/StateCensusData.csv",CensusData.class);
+            stateCensusAnalyser.sortThisListBasedOnPopulation(censusDatalist);
+            Iterator iterator=censusDatalist.iterator();
+            while (iterator.hasNext())
+            {
+                CensusData censusData = (CensusData) iterator.next();
+                System.out.println(censusData.getStateName());
+                System.out.println(censusData.getPopulation());
+            }
             Assert.assertTrue(stateCensusAnalyser.writeToGson(censusDatalist));
 
         }catch (CustomException e)

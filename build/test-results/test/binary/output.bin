@@ -1,1 +1,72 @@
-=WhenReadFile_CountRecordsOfCensus_SortByStateName_ReturnTrue
+>WhenReadFile_CountRecordsOfCensus_SortByPopulation_ReturnTrue
+Uttar Pradesh
+1.99812341E8
+Maharashta
+1.12372972E8
+Bihar
+1.03804637E8
+West Bengal
+9.1347736E7
+Madhya Pradesh
+7.2597565E7
+Tamil Nadu
+7.2138958E7
+
+Rajasthan
+6.8621012E7
+
+Karnataka
+6.1130704E7
+Gujarat
+6.0383628E7
+Andhra Pradesh
+4.9386799E7
+Odisha
+4.1947358E7
+
+Telangana
+3.5286757E7
+Kerala
+3.3387677E7
+
+Jharkhand
+3.2966238E7
+Assam
+3.1169272E7
+Punjab
+2.7704236E7
+Chattisgarh
+2.5540196E7
+Haryana
+2.5353081E7
+Jammu and Kashmir
+1.2548926E7
+Uttarakhand
+1.0116752E7
+Himachal Pradesh
+
+6864602.0
+Tripura
+
+3671032.0
+
+Meghalaya
+
+2964007.0
+Manipur
+
+2721756.0
+	Nagaland
+
+1980602.0
+Goa
+
+1457723.0
+Arunachal Pradesh
+
+1382611.0
+Mizoram
+
+1091014.0
+Sikkim
+	607688.0
