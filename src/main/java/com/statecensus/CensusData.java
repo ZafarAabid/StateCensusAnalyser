@@ -2,19 +2,19 @@ package com.statecensus;
 
 import com.opencsv.bean.CsvBindByName;
 
-public class StateCensusData {
+public class CensusData {
 
-    public StateCensusData() {
-    }
-    public StateCensusData(String state, double population, double areaInSqKm, double densityPerSqKm) {
-        this.state = state;
+    public CensusData() {}
+
+    public CensusData(String stateName, double population, double areaInSqKm, double densityPerSqKm) {
+        this.stateName = stateName;
         this.population = population;
         this.areaInSqKm = areaInSqKm;
         this.densityPerSqKm = densityPerSqKm;
     }
 
     @CsvBindByName(column = "StateName")
-    private String state;
+    private String stateName;
     @CsvBindByName(column = "Population")
     private double population;
     @CsvBindByName(column = "AreaInSqKm")
@@ -23,8 +23,8 @@ public class StateCensusData {
     private double densityPerSqKm;
 
 
-    public String getState() {
-        return state;
+    public String getStateName() {
+        return stateName;
     }
 
     public double getPopulation() {
@@ -39,8 +39,8 @@ public class StateCensusData {
         return densityPerSqKm;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public void setStateName(String stateName) {
+        this.stateName = stateName;
     }
 
     public void setPopulation(double population) {
