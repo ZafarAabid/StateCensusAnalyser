@@ -4,18 +4,6 @@ import com.opencsv.bean.CsvBindByName;
 
 public class StateCensusDataPojo {
 
-    public StateCensusDataPojo() {}
-
-    public StateCensusDataPojo(int srNo, String stateName, String TIN, String stateCode, double population, double areaInSqKm, double densityPerSqKm) {
-        SrNo = srNo;
-        StateName = stateName;
-        this.TIN = TIN;
-        StateCode = stateCode;
-        this.population = population;
-        this.areaInSqKm = areaInSqKm;
-        this.densityPerSqKm = densityPerSqKm;
-    }
-
     @CsvBindByName(column = "SrNo")
     private int SrNo;
     @CsvBindByName(column = "StateName")
@@ -30,6 +18,18 @@ public class StateCensusDataPojo {
     private double areaInSqKm;
     @CsvBindByName(column = "DensityPerSqKm")
     private double densityPerSqKm;
+
+    public StateCensusDataPojo() {}
+
+    public StateCensusDataPojo(int srNo, String stateName, String TIN, String stateCode, double population, double areaInSqKm, double densityPerSqKm) {
+        SrNo = srNo;
+        StateName = stateName;
+        this.TIN = TIN;
+        StateCode = stateCode;
+        this.population = population;
+        this.areaInSqKm = areaInSqKm;
+        this.densityPerSqKm = densityPerSqKm;
+    }
 
     public void setStateName(String stateName) {
         StateName = stateName;
@@ -47,6 +47,20 @@ public class StateCensusDataPojo {
         StateCode = stateCode;
     }
 
+    public void setPopulation(double population) {
+        this.population = population;
+    }
+
+    public void setAreaInSqKm(double areaInSqKm) {
+        this.areaInSqKm = areaInSqKm;
+    }
+
+    public void setDensityPerSqKm(double densityPerSqKm) {
+        this.densityPerSqKm = densityPerSqKm;
+    }
+
+
+
     public String getStateName() {
         return StateName;
     }
@@ -63,8 +77,6 @@ public class StateCensusDataPojo {
         return StateCode;
     }
 
-
-
     public double getPopulation() {
         return population;
     }
@@ -77,17 +89,6 @@ public class StateCensusDataPojo {
         return densityPerSqKm;
     }
 
-    public void setPopulation(double population) {
-        this.population = population;
-    }
-
-    public void setAreaInSqKm(double areaInSqKm) {
-        this.areaInSqKm = areaInSqKm;
-    }
-
-    public void setDensityPerSqKm(double densityPerSqKm) {
-        this.densityPerSqKm = densityPerSqKm;
-    }
 
 
 

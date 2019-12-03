@@ -1,11 +1,8 @@
 package com.statecensus;
 
-import com.opencsv.CSVWriter;
-import com.opencsv.bean.StatefulBeanToCsv;
-import com.opencsv.bean.StatefulBeanToCsvBuilder;
-
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
@@ -17,6 +14,7 @@ public class StateCensusData {
         StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
         StateCensusDataPojo censusDataPojo=new StateCensusDataPojo();
         List<StateCensusDataPojo> stateCensusDataPojos = new ArrayList();
+        HashMap<String,StateCensusDataPojo> stateCensusDataDictionary = new HashMap<>();
 
         try {
             Iterator<CSVState> stateIterator=stateCensusAnalyser.createBuilder("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/StateCode.csv",CSVState.class);
@@ -45,15 +43,18 @@ public class StateCensusData {
                                  System.out.println("------------------");
 
                                  stateCensusDataPojos.add(censusDataPojo);
+                                 stateCensusDataDictionary.put(censusDataPojo.getStateName(),censusDataPojo);
                                  break;
                              }
+
                 }
+
             }
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        catch (Exception e)
-            {
-                System.out.println(e.getMessage());
-            }
 
     }
 
