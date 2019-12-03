@@ -1,66 +1,181 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.statecensus.StateCensusAnalyserTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-03T12:57:37" hostname="FH400" time="0.28">
+<testsuite name="com.statecensus.StateCensusAnalyserTests" tests="14" skipped="0" failures="0" errors="0" timestamp="2019-12-03T13:29:56" hostname="FH400" time="0.437">
   <properties/>
-  <testcase name="WhenReadFile_CountRecordsOfCensus_SortByPopulation_ReturnTrue" classname="com.statecensus.StateCensusAnalyserTests" time="0.28"/>
-  <system-out><![CDATA[WhenReadFile_CountRecordsOfCensus_SortByPopulation_ReturnTrue
-Uttar Pradesh
-1.99812341E8
-Maharashta
-1.12372972E8
-Bihar
-1.03804637E8
-West Bengal
-9.1347736E7
-Madhya Pradesh
-7.2597565E7
-Tamil Nadu
-7.2138958E7
-Rajasthan
-6.8621012E7
-Karnataka
-6.1130704E7
-Gujarat
-6.0383628E7
-Andhra Pradesh
-4.9386799E7
-Odisha
-4.1947358E7
-Telangana
-3.5286757E7
-Kerala
-3.3387677E7
-Jharkhand
-3.2966238E7
-Assam
-3.1169272E7
-Punjab
-2.7704236E7
-Chattisgarh
-2.5540196E7
-Haryana
-2.5353081E7
-Jammu and Kashmir
-1.2548926E7
-Uttarakhand
-1.0116752E7
-Himachal Pradesh
-6864602.0
-Tripura
-3671032.0
-Meghalaya
-2964007.0
-Manipur
-2721756.0
-Nagaland
-1980602.0
-Goa
-1457723.0
-Arunachal Pradesh
-1382611.0
-Mizoram
-1091014.0
-Sikkim
-607688.0
+  <testcase name="WhenReadFile_ifFileNameIsCorrect_ButExtensionIsNot_ShouldThrowException" classname="com.statecensus.StateCensusAnalyserTests" time="0.015"/>
+  <testcase name="WhenReadFile_CountRecordsOfCensus_ifFileNameIsCorrect_butExtensionIsNotCorrecct_ShouldThrowException" classname="com.statecensus.StateCensusAnalyserTests" time="0.003"/>
+  <testcase name="WhenReadFile_CountRecordsOfCensus_ifFileNameIsCorrect_butHeaderIsNotCorrecct_ShouldThrowException" classname="com.statecensus.StateCensusAnalyserTests" time="0.117"/>
+  <testcase name="WhenReadFile_ifFileNameIsGiven_WithDifferentHeader_ShouldThrowException" classname="com.statecensus.StateCensusAnalyserTests" time="0.018"/>
+  <testcase name="WhenReadFile_CountRecordsOfCensus_SortByStateName_ReturnTrue" classname="com.statecensus.StateCensusAnalyserTests" time="0.108"/>
+  <testcase name="WhenReadFile_CountRecords_ifCorrect_ShouldReturnTrue" classname="com.statecensus.StateCensusAnalyserTests" time="0.018"/>
+  <testcase name="WhenReadFile_ifFileNameIsNotCorrect_ShouldThrowException" classname="com.statecensus.StateCensusAnalyserTests" time="0.004"/>
+  <testcase name="WhenReadFile_CountRecordsOfCensus_ifFileNameIsNotCorrect_ShouldThrowException" classname="com.statecensus.StateCensusAnalyserTests" time="0.003"/>
+  <testcase name="WhenReadFile_CountRecordsOfCensus_ifFileNameIsCorrect_butDelimeterIsNotCorrecct_ShouldThrowException" classname="com.statecensus.StateCensusAnalyserTests" time="0.008"/>
+  <testcase name="WhenReadFile_CountRecordsOfCensus_ifCorrect_ShouldReturnTrue" classname="com.statecensus.StateCensusAnalyserTests" time="0.009"/>
+  <testcase name="WhenReadFile_ifDifferentFileNameIsGiven_ShouldThrowException" classname="com.statecensus.StateCensusAnalyserTests" time="0.009"/>
+  <testcase name="WhenReadFile_ifFileNameIsGiven_WithDifferentDelimeter_ShouldThrowException" classname="com.statecensus.StateCensusAnalyserTests" time="0.008"/>
+  <testcase name="WhenReadFile_CountRecordsOfCensus_SortByAreaDensity_ReturnTrue" classname="com.statecensus.StateCensusAnalyserTests" time="0.07"/>
+  <testcase name="WhenReadFile_CountRecordsOfCensus_SortByPopulation_ReturnTrue" classname="com.statecensus.StateCensusAnalyserTests" time="0.032"/>
+  <system-out><![CDATA[WhenReadFile_ifFileNameIsCorrect_ButExtensionIsNot_ShouldThrowException
+NO_SUCH_FILE issue
+WhenReadFile_CountRecordsOfCensus_ifFileNameIsCorrect_butExtensionIsNotCorrecct_ShouldThrowException
+NO_SUCH_FILE
+WhenReadFile_CountRecordsOfCensus_ifFileNameIsCorrect_butHeaderIsNotCorrecct_ShouldThrowException
+WhenReadFile_CountRecordsOfCensus_SortByStateName_ReturnTrue
+stateName:Andhra Pradesh
+stateName:Arunachal Pradesh
+stateName:Assam
+stateName:Bihar
+stateName:Chattisgarh
+stateName:Goa
+stateName:Gujarat
+stateName:Haryana
+stateName:Himachal Pradesh
+stateName:Jammu and Kashmir
+stateName:Jharkhand
+stateName:Karnataka
+stateName:Kerala
+stateName:Madhya Pradesh
+stateName:Maharashta
+stateName:Manipur
+stateName:Meghalaya
+stateName:Mizoram
+stateName:Nagaland
+stateName:Odisha
+stateName:Punjab
+stateName:Rajasthan
+stateName:Sikkim
+stateName:Tamil Nadu
+stateName:Telangana
+stateName:Tripura
+stateName:Uttar Pradesh
+stateName:Uttarakhand
+stateName:West Bengal
+WhenReadFile_CountRecords_ifCorrect_ShouldReturnTrue
+WhenReadFile_ifFileNameIsNotCorrect_ShouldThrowException
+NO_SUCH_FILE
+WhenReadFile_CountRecordsOfCensus_ifFileNameIsNotCorrect_ShouldThrowException
+NO_SUCH_FILE
+WhenReadFile_CountRecordsOfCensus_ifFileNameIsCorrect_butDelimeterIsNotCorrecct_ShouldThrowException
+WhenReadFile_CountRecordsOfCensus_ifCorrect_ShouldReturnTrue
+WhenReadFile_ifDifferentFileNameIsGiven_ShouldThrowException
+WhenReadFile_CountRecordsOfCensus_SortByAreaDensity_ReturnTrue
+stateName:Rajasthan
+Area:342239.0
+stateName:Madhya Pradesh
+Area:308245.0
+stateName:Maharashta
+Area:307713.0
+stateName:Uttar Pradesh
+Area:240928.0
+stateName:Jammu and Kashmir
+Area:222236.0
+stateName:Gujarat
+Area:196024.0
+stateName:Karnataka
+Area:191791.0
+stateName:Andhra Pradesh
+Area:162968.0
+stateName:Odisha
+Area:155707.0
+stateName:Chattisgarh
+Area:135191.0
+stateName:Tamil Nadu
+Area:130058.0
+stateName:Telangana
+Area:114840.0
+stateName:Bihar
+Area:94163.0
+stateName:West Bengal
+Area:88752.0
+stateName:Jharkhand
+Area:79714.0
+stateName:Assam
+Area:78438.0
+stateName:Himachal Pradesh
+Area:55673.0
+stateName:Uttarakhand
+Area:53483.0
+stateName:Punjab
+Area:50362.0
+stateName:Haryana
+Area:44212.0
+stateName:Kerala
+Area:38863.0
+stateName:Meghalaya
+Area:22429.0
+stateName:Manipur
+Area:22327.0
+stateName:Mizoram
+Area:21081.0
+stateName:Nagaland
+Area:16579.0
+stateName:Tripura
+Area:10486.0
+stateName:Sikkim
+Area:7096.0
+stateName:Goa
+Area:3702.0
+stateName:Arunachal Pradesh
+Area:0.0
+WhenReadFile_CountRecordsOfCensus_SortByPopulation_ReturnTrue
+stateName:Uttar Pradesh
+population:1.99812341E8
+stateName:Maharashta
+population:1.12372972E8
+stateName:Bihar
+population:1.03804637E8
+stateName:West Bengal
+population:9.1347736E7
+stateName:Madhya Pradesh
+population:7.2597565E7
+stateName:Tamil Nadu
+population:7.2138958E7
+stateName:Rajasthan
+population:6.8621012E7
+stateName:Karnataka
+population:6.1130704E7
+stateName:Gujarat
+population:6.0383628E7
+stateName:Andhra Pradesh
+population:4.9386799E7
+stateName:Odisha
+population:4.1947358E7
+stateName:Telangana
+population:3.5286757E7
+stateName:Kerala
+population:3.3387677E7
+stateName:Jharkhand
+population:3.2966238E7
+stateName:Assam
+population:3.1169272E7
+stateName:Punjab
+population:2.7704236E7
+stateName:Chattisgarh
+population:2.5540196E7
+stateName:Haryana
+population:2.5353081E7
+stateName:Jammu and Kashmir
+population:1.2548926E7
+stateName:Uttarakhand
+population:1.0116752E7
+stateName:Himachal Pradesh
+population:6864602.0
+stateName:Tripura
+population:3671032.0
+stateName:Meghalaya
+population:2964007.0
+stateName:Manipur
+population:2721756.0
+stateName:Nagaland
+population:1980602.0
+stateName:Goa
+population:1457723.0
+stateName:Arunachal Pradesh
+population:1382611.0
+stateName:Mizoram
+population:1091014.0
+stateName:Sikkim
+population:607688.0
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
