@@ -54,6 +54,10 @@ public class StateCensusAnalyser {
         Comparator<CensusData> c = (s1, s2) -> (int) ((s2.getPopulation()) - (s1.getPopulation()));
         censusList.sort(c);
     }
+    public void sortThisListBasedOnPopulationdensity(List<CensusData> censusList) {
+        Comparator<CensusData> c = (s1, s2) -> (int) ((s2.getDensityPerSqKm()) - (s1.getDensityPerSqKm()));
+        censusList.sort(c);
+    }
     public void sortThisListBasedOnAreaDensity(List<CensusData> censusList) {
         Comparator<CensusData> c = (s1, s2) -> (int) ((s2.getAreaInSqKm()) - (s1.getAreaInSqKm()));
         censusList.sort(c);

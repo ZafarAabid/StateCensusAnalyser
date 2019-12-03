@@ -258,6 +258,29 @@ public class StateCensusAnalyserTests {
             System.out.println(e.getMessage());
         }
     }
+    @Test
+    public void WhenReadFile_CountRecordsOfCensus_SortByPopulationDensity_ReturnTrue() throws IOException {
+        System.out.println("WhenReadFile_CountRecordsOfCensus_SortByPopulation_ReturnTrue");
+
+        StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
+        try {
+            List censusDatalist=stateCensusAnalyser.getRecordCount("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/StateCensusData.csv",CensusData.class);
+            stateCensusAnalyser.sortThisListBasedOnPopulationdensity(censusDatalist);
+            Iterator iterator=censusDatalist.iterator();
+            while (iterator.hasNext())
+            {
+                CensusData censusData = (CensusData) iterator.next();
+                System.out.println("stateName:"+censusData.getStateName());
+                System.out.println("population:"+censusData.getPopulation());
+            }
+
+            Assert.assertTrue(stateCensusAnalyser.writeToGson(censusDatalist));
+
+        }catch (CustomException e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }
 
     @Test
     public void WhenReadFile_CountRecordsOfCensus_SortByAreaDensity_ReturnTrue() throws IOException {
