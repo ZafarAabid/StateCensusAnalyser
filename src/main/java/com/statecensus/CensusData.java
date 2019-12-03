@@ -2,7 +2,7 @@ package com.statecensus;
 
 import com.opencsv.bean.CsvBindByName;
 
-public class CensusData {
+public class CensusData implements Comparable<CensusData>{
 
     public CensusData() {}
 
@@ -53,5 +53,10 @@ public class CensusData {
 
     public void setDensityPerSqKm(double densityPerSqKm) {
         this.densityPerSqKm = densityPerSqKm;
+    }
+
+    @Override
+    public int compareTo(CensusData object) {
+        return this.getStateName().toString().compareTo(object.getStateName().toString());
     }
 }

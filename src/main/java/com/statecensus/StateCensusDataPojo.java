@@ -2,7 +2,7 @@ package com.statecensus;
 
 import com.opencsv.bean.CsvBindByName;
 
-public class StateCensusDataPojo {
+public class StateCensusDataPojo implements Comparable<StateCensusDataPojo>{
 
 
     @CsvBindByName(column = "StateName")
@@ -88,7 +88,10 @@ public class StateCensusDataPojo {
         return densityPerSqKm;
     }
 
-
+    @Override
+    public int compareTo(StateCensusDataPojo o) {
+        return this.getStateName().compareTo(o.getStateName());
+    }
 
 
 }

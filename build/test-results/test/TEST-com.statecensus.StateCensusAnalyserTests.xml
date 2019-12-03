@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.statecensus.StateCensusAnalyserTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-03T12:32:39" hostname="FH400" time="0.56">
+  <properties/>
+  <testcase name="WhenReadFile_CountRecordsOfCensus_SortByStateName_ReturnTrue" classname="com.statecensus.StateCensusAnalyserTests" time="0.56"/>
+  <system-out><![CDATA[WhenReadFile_CountRecordsOfCensus_SortByStateName_ReturnTrue
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

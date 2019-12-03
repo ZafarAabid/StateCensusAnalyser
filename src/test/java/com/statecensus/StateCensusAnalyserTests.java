@@ -4,6 +4,9 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class StateCensusAnalyserTests {
     StateCensusAnalyser stateCensusAnalyser =new StateCensusAnalyser();
@@ -12,8 +15,8 @@ public class StateCensusAnalyserTests {
         System.out.println("WhenReadFile_CountRecords_ifCorrect_ShouldReturnTrue");
 
         StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
-        Assert.assertEquals(37, stateCensusAnalyser.getRecordCount("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/StateCode.csv",CSVState.class));
-    }
+        List list =stateCensusAnalyser.getRecordCount("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/StateCode.csv",CSVState.class);
+        Assert.assertEquals(37,list.size());    }
 
     @Test
     public void WhenReadFile_ifFileNameIsNotCorrect_ShouldThrowException() throws IOException {
@@ -21,10 +24,12 @@ public class StateCensusAnalyserTests {
 
         StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
         try {
-            Assert.assertEquals(37,stateCensusAnalyser.getRecordCount("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/StateCode123.csv",CSVState.class));
+            List list =stateCensusAnalyser.getRecordCount("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/StateCode123.csv",CSVState.class);
+            Assert.assertEquals(37,list.size());
         }
         catch (CustomException e)
         {
+            System.out.println("NO_SUCH_FILE");
             Assert.assertEquals(CustomException.ExceptionType.NO_SUCH_FILE,e.type);
         }
     }
@@ -34,7 +39,8 @@ public class StateCensusAnalyserTests {
         System.out.println("WhenReadFile_ifFileNameIsCorrect_ButExtensionIsNot_ShouldThrowException");
         StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
         try {
-            Assert.assertEquals(37,stateCensusAnalyser.getRecordCount("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/StateCode.pdf",CSVState.class));
+            List list =stateCensusAnalyser.getRecordCount("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/StateCode.txt",CSVState.class);
+            Assert.assertEquals(37,list.size());
         }
         catch (CustomException e)
         {
@@ -51,8 +57,10 @@ public class StateCensusAnalyserTests {
 
         StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
         try {
-            Assert.assertEquals(37,stateCensusAnalyser.getRecordCount("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/StCensusData.csv",CSVState.class));
-        }
+            List list =stateCensusAnalyser.getRecordCount("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/StateCode.csv",CSVState.class);
+            Assert.assertEquals(37,list.size());
+
+    }
         catch (CustomException e)
         {
             if(e.type.toString().equals("NO_SUCH_FILE")) {
@@ -72,8 +80,8 @@ public class StateCensusAnalyserTests {
     public void WhenReadFile_ifFileNameIsGiven_WithDifferentDelimeter_ShouldThrowException() {
         StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
         try {
-            Assert.assertEquals(37,stateCensusAnalyser.getRecordCount("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/State-Code.csv",CSVState.class));
-        }
+            List list =stateCensusAnalyser.getRecordCount("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/State-Code.csv",CSVState.class);
+            Assert.assertEquals(37,list.size());    }
         catch (CustomException e)
         {
             if(e.type.toString().equals("NO_SUCH_FILE")) {
@@ -92,8 +100,10 @@ public class StateCensusAnalyserTests {
     public void WhenReadFile_ifFileNameIsGiven_WithDifferentHeader_ShouldThrowException() {
         StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
         try {
-             Assert.assertEquals(37,stateCensusAnalyser.getRecordCount("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/State-Code.csv",CSVState.class));
+            List list =stateCensusAnalyser.getRecordCount("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/State-Code.csv",CSVState.class);
+            Assert.assertEquals(37,list.size());
         }
+
         catch (CustomException e)
         {
             if(e.type.toString().equals("NO_SUCH_FILE")) {
@@ -120,7 +130,8 @@ public class StateCensusAnalyserTests {
 
         StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
         try {
-            Assert.assertEquals(29, stateCensusAnalyser.getRecordCount("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/StateCensusData.csv",CensusData.class));
+            List censusDatalist=stateCensusAnalyser.getRecordCount("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/StateCensusData.csv",CensusData.class);
+            Assert.assertEquals(29, censusDatalist.size());
         }catch (CustomException e)
         {
             System.out.println(e.getMessage());
@@ -133,7 +144,8 @@ public class StateCensusAnalyserTests {
 
         StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
         try {
-            Assert.assertEquals(29, stateCensusAnalyser.getRecordCount("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/StateCensusData123.csv",CensusData.class));
+            List censusDatalist=stateCensusAnalyser.getRecordCount("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/StateCensusData123.csv",CensusData.class);
+            Assert.assertEquals(29, censusDatalist.size());
         }catch (CustomException e)
         {
             System.out.println("NO_SUCH_FILE");
@@ -147,7 +159,8 @@ public class StateCensusAnalyserTests {
 
         StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
         try {
-            Assert.assertEquals(29, stateCensusAnalyser.getRecordCount("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/StateCensusData.txt",CensusData.class));
+            List censusDatalist=stateCensusAnalyser.getRecordCount("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/StateCensusData.txt",CensusData.class);
+            Assert.assertEquals(29, censusDatalist.size());
         }catch (CustomException e)
         {
             System.out.println("NO_SUCH_FILE");
@@ -162,7 +175,8 @@ public class StateCensusAnalyserTests {
 
         StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
         try {
-            Assert.assertEquals(29, stateCensusAnalyser.getRecordCount("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/StateCensusData.csv",CensusData.class));
+            List censusDatalist=stateCensusAnalyser.getRecordCount("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/State-Census-Data.csv",CensusData.class);
+            Assert.assertEquals(29, censusDatalist.size());
         }catch (CustomException e)
         {
             if(e.type.toString().equals("NO_SUCH_FILE")) {
@@ -183,7 +197,8 @@ public class StateCensusAnalyserTests {
 
         StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
         try {
-            Assert.assertEquals(29, stateCensusAnalyser.getRecordCount("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/State-Census-Data.csv",CensusData.class));
+            List censusDatalist=stateCensusAnalyser.getRecordCount("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/State-Census-Data.csv",CensusData.class);
+            Assert.assertEquals(29, censusDatalist.size());
         }catch (CustomException e)
         {
             if(e.type.toString().equals("NO_SUCH_FILE")) {
@@ -196,14 +211,22 @@ public class StateCensusAnalyserTests {
             }
         }
 
-
-
-
-
-
-
-
     }
 
+    @Test
+    public void WhenReadFile_CountRecordsOfCensus_SortByStateName_ReturnTrue() throws IOException {
+        System.out.println("WhenReadFile_CountRecordsOfCensus_SortByStateName_ReturnTrue");
 
+        StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
+        try {
+            List censusDatalist=stateCensusAnalyser.getRecordCount("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/StateCensusData.csv",CensusData.class);
+            Collections.sort(censusDatalist, Comparator.comparing(CensusData::getStateName));
+
+            Assert.assertTrue(stateCensusAnalyser.writeToGson(censusDatalist));
+
+        }catch (CustomException e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }
 }
