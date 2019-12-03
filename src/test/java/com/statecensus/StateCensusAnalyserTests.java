@@ -251,6 +251,7 @@ public class StateCensusAnalyserTests {
                 System.out.println(censusData.getStateName());
                 System.out.println(censusData.getPopulation());
             }
+
             Assert.assertTrue(stateCensusAnalyser.writeToGson(censusDatalist));
 
         }catch (CustomException e)
