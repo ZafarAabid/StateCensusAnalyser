@@ -4,20 +4,19 @@ import com.opencsv.bean.CsvBindByName;
 
 public class StateCensusDataPojo {
 
-    @CsvBindByName(column = "SrNo")
-    private int SrNo;
+
     @CsvBindByName(column = "StateName")
     private String StateName;
+    @CsvBindByName(column = "SrNo")
+    private int SrNo;
     @CsvBindByName(column = "TIN")
     private String TIN;
     @CsvBindByName(column = "StateCode")
     private String StateCode;
-    @CsvBindByName(column = "Population")
     private double population;
-    @CsvBindByName(column = "AreaInSqKm")
     private double areaInSqKm;
-    @CsvBindByName(column = "DensityPerSqKm")
     private double densityPerSqKm;
+
 
     public StateCensusDataPojo() {}
 

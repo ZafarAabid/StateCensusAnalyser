@@ -17,33 +17,30 @@ public class StateCensusData {
         HashMap<String,StateCensusDataPojo> stateCensusDataDictionary = new HashMap<>();
 
         try {
-            Iterator<CSVState> stateIterator=stateCensusAnalyser.createBuilder("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/StateCode.csv",CSVState.class);
+            Iterator<StateCensusDataPojo> stateCensusDataPojoIterator=stateCensusAnalyser.createBuilder("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/StateCode.csv",StateCensusDataPojo.class);
             Iterator<CensusData> censusDataIterator=stateCensusAnalyser.createBuilder("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/StateCensusData.csv",CensusData.class);
-                while (stateIterator.hasNext())
+                while (stateCensusDataPojoIterator.hasNext())
                 {
-                    CSVState csvState = stateIterator.next();
+                    StateCensusDataPojo stateCensusDataPojo = stateCensusDataPojoIterator.next();
+
                     censusDataIterator=stateCensusAnalyser.createBuilder("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/StateCensusData.csv",CensusData.class);
                     while (censusDataIterator.hasNext())
                         {
                             CensusData censusData = censusDataIterator.next();
-                            System.out.println(csvState.getStateName()+"----"+censusData.getStateName());
-                            if (csvState.getStateName().equals(censusData.getStateName()))
+                            System.out.println(stateCensusDataPojo.getStateName()+"----"+censusData.getStateName());
+                            if (stateCensusDataPojo.getStateName().equals(censusData.getStateName()))
                              {
-                                 censusDataPojo.setStateName(csvState.getStateName());
-                                 censusDataPojo.setSrNo(csvState.getSrNo());
-                                 censusDataPojo.setStateCode(csvState.getStateCode());
-                                 censusDataPojo.setTIN(csvState.getTIN());
-                                 censusDataPojo.setAreaInSqKm(censusData.getAreaInSqKm());
-                                 censusDataPojo.setPopulation(censusData.getPopulation());
-                                 censusDataPojo.setDensityPerSqKm(censusData.getDensityPerSqKm());
+                                 stateCensusDataPojo.setAreaInSqKm(censusData.getAreaInSqKm());
+                                 stateCensusDataPojo.setPopulation(censusData.getPopulation());
+                                 stateCensusDataPojo.setDensityPerSqKm(censusData.getDensityPerSqKm());
+
+                                 stateCensusDataPojos.add(stateCensusDataPojo);
+                                 stateCensusDataDictionary.put(stateCensusDataPojo.getStateName(),stateCensusDataPojo);
 
                                  System.out.println("------------------");
-                                 System.out.println(censusDataPojo.getStateName()+" "+censusDataPojo.getSrNo()+" "+censusDataPojo.getStateCode()+" "+censusDataPojo.getTIN());
-                                 System.out.println(censusDataPojo.getPopulation()+" "+censusDataPojo.getDensityPerSqKm()+" "+censusDataPojo.getAreaInSqKm());
+                                 System.out.println(stateCensusDataPojo.getStateName()+" "+stateCensusDataPojo.getSrNo()+" "+stateCensusDataPojo.getStateCode()+" "+stateCensusDataPojo.getTIN());
+                                 System.out.println(stateCensusDataPojo.getPopulation()+" "+stateCensusDataPojo.getDensityPerSqKm()+" "+stateCensusDataPojo.getAreaInSqKm());
                                  System.out.println("------------------");
-
-                                 stateCensusDataPojos.add(censusDataPojo);
-                                 stateCensusDataDictionary.put(censusDataPojo.getStateName(),censusDataPojo);
                                  break;
                              }
 
