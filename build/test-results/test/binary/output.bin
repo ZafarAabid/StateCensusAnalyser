@@ -1,14 +1,0 @@
-HWhenReadFile_ifFileNameIsCorrect_ButExtensionIsNot_ShouldThrowException
-NO_SUCH_FILE issue
-eWhenReadFile_CountRecordsOfCensus_ifFileNameIsCorrect_butExtensionIsNotCorrecct_ShouldThrowException
-NO_SUCH_FILE
-bWhenReadFile_CountRecordsOfCensus_ifFileNameIsCorrect_butHeaderIsNotCorrecct_ShouldThrowException
-5WhenReadFile_CountRecords_ifCorrect_ShouldReturnTrue
-9WhenReadFile_ifFileNameIsNotCorrect_ShouldThrowException
-NWhenReadFile_CountRecordsOfCensus_ifFileNameIsNotCorrect_ShouldThrowException
-NO_SUCH_FILE
-	eWhenReadFile_CountRecordsOfCensus_ifFileNameIsCorrect_butDelimeterIsNotCorrecct_ShouldThrowException
-
-=WhenReadFile_CountRecordsOfCensus_ifCorrect_ShouldReturnTrue
-=WhenReadFile_ifDifferentFileNameIsGiven_ShouldThrowException
-NO_SUCH_FILE
