@@ -1,66 +1,153 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.statecensus.StateCensusAnalyserTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-03T13:50:51" hostname="FH400" time="0.524">
+<testsuite name="com.statecensus.StateCensusAnalyserTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-07T10:17:19" hostname="FH400" time="0.444">
   <properties/>
-  <testcase name="WhenReadFile_CountRecordsOfCensus_SortByPopulationDensity_ReturnTrue" classname="com.statecensus.StateCensusAnalyserTests" time="0.524"/>
-  <system-out><![CDATA[WhenReadFile_CountRecordsOfCensus_SortByPopulation_ReturnTrue
-stateName:Bihar
-population:1.03804637E8
-stateName:West Bengal
-population:9.1347736E7
-stateName:Kerala
-population:3.3387677E7
-stateName:Uttar Pradesh
-population:1.99812341E8
-stateName:Haryana
-population:2.5353081E7
-stateName:Tamil Nadu
-population:7.2138958E7
-stateName:Punjab
-population:2.7704236E7
-stateName:Jharkhand
-population:3.2966238E7
-stateName:Assam
-population:3.1169272E7
-stateName:Goa
-population:1457723.0
-stateName:Maharashta
-population:1.12372972E8
-stateName:Tripura
-population:3671032.0
-stateName:Karnataka
-population:6.1130704E7
-stateName:Gujarat
-population:6.0383628E7
-stateName:Telangana
-population:3.5286757E7
+  <testcase name="WhenReadFile_CountRecordsOfCensus_SortByAreaDensity_ReturnTrue" classname="com.statecensus.StateCensusAnalyserTests" time="0.444"/>
+  <system-out><![CDATA[WhenReadFile_CountRecordsOfCensus_SortByParameter_ReturnTrue
 stateName:Andhra Pradesh
 population:4.9386799E7
-stateName:Odisha
-population:4.1947358E7
-stateName:Madhya Pradesh
-population:7.2597565E7
-stateName:Rajasthan
-population:6.8621012E7
-stateName:Chattisgarh
-population:2.5540196E7
-stateName:Uttarakhand
-population:1.0116752E7
-stateName:Meghalaya
-population:2964007.0
-stateName:Himachal Pradesh
-population:6864602.0
-stateName:Manipur
-population:2721756.0
-stateName:Nagaland
-population:1980602.0
-stateName:Sikkim
-population:607688.0
-stateName:Jammu and Kashmir
-population:1.2548926E7
-stateName:Mizoram
-population:1091014.0
+Area:162968.0
+Density:303.0
+----------------------------------------------
 stateName:Arunachal Pradesh
 population:1382611.0
+Area:0.0
+Density:0.0
+----------------------------------------------
+stateName:Assam
+population:3.1169272E7
+Area:78438.0
+Density:397.0
+----------------------------------------------
+stateName:Bihar
+population:1.03804637E8
+Area:94163.0
+Density:1102.0
+----------------------------------------------
+stateName:Chattisgarh
+population:2.5540196E7
+Area:135191.0
+Density:189.0
+----------------------------------------------
+stateName:Goa
+population:1457723.0
+Area:3702.0
+Density:394.0
+----------------------------------------------
+stateName:Gujarat
+population:6.0383628E7
+Area:196024.0
+Density:308.0
+----------------------------------------------
+stateName:Haryana
+population:2.5353081E7
+Area:44212.0
+Density:573.0
+----------------------------------------------
+stateName:Himachal Pradesh
+population:6864602.0
+Area:55673.0
+Density:123.0
+----------------------------------------------
+stateName:Jammu and Kashmir
+population:1.2548926E7
+Area:222236.0
+Density:57.0
+----------------------------------------------
+stateName:Jharkhand
+population:3.2966238E7
+Area:79714.0
+Density:414.0
+----------------------------------------------
+stateName:Karnataka
+population:6.1130704E7
+Area:191791.0
+Density:319.0
+----------------------------------------------
+stateName:Kerala
+population:3.3387677E7
+Area:38863.0
+Density:859.0
+----------------------------------------------
+stateName:Madhya Pradesh
+population:7.2597565E7
+Area:308245.0
+Density:236.0
+----------------------------------------------
+stateName:Maharashta
+population:1.12372972E8
+Area:307713.0
+Density:365.0
+----------------------------------------------
+stateName:Manipur
+population:2721756.0
+Area:22327.0
+Density:122.0
+----------------------------------------------
+stateName:Meghalaya
+population:2964007.0
+Area:22429.0
+Density:132.0
+----------------------------------------------
+stateName:Mizoram
+population:1091014.0
+Area:21081.0
+Density:52.0
+----------------------------------------------
+stateName:Nagaland
+population:1980602.0
+Area:16579.0
+Density:119.0
+----------------------------------------------
+stateName:Odisha
+population:4.1947358E7
+Area:155707.0
+Density:269.0
+----------------------------------------------
+stateName:Punjab
+population:2.7704236E7
+Area:50362.0
+Density:550.0
+----------------------------------------------
+stateName:Rajasthan
+population:6.8621012E7
+Area:342239.0
+Density:201.0
+----------------------------------------------
+stateName:Sikkim
+population:607688.0
+Area:7096.0
+Density:86.0
+----------------------------------------------
+stateName:Tamil Nadu
+population:7.2138958E7
+Area:130058.0
+Density:555.0
+----------------------------------------------
+stateName:Telangana
+population:3.5286757E7
+Area:114840.0
+Density:307.0
+----------------------------------------------
+stateName:Tripura
+population:3671032.0
+Area:10486.0
+Density:350.0
+----------------------------------------------
+stateName:Uttar Pradesh
+population:1.99812341E8
+Area:240928.0
+Density:828.0
+----------------------------------------------
+stateName:Uttarakhand
+population:1.0116752E7
+Area:53483.0
+Density:189.0
+----------------------------------------------
+stateName:West Bengal
+population:9.1347736E7
+Area:88752.0
+Density:1029.0
+----------------------------------------------
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

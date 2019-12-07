@@ -5,7 +5,6 @@ import com.opencsv.bean.CsvBindByName;
 public class CensusData implements Comparable<CensusData>{
 
     public CensusData() {}
-
     public CensusData(String stateName, double population, double areaInSqKm, double densityPerSqKm) {
         this.stateName = stateName;
         this.population = population;

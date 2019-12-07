@@ -5,7 +5,7 @@ import java.util.*;
 
 public class StateCensusData {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CustomException {
         CSVState csvStates = new CSVState();
         CensusData censusDataa = new CensusData();
         StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
@@ -19,30 +19,20 @@ public class StateCensusData {
                 while (stateCensusDataPojoIterator.hasNext())
                 {
                     StateCensusDataPojo stateCensusDataPojo = stateCensusDataPojoIterator.next();
-
                     censusDataIterator=stateCensusAnalyser.createBuilder("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/StateCensusData.csv",CensusData.class);
                     while (censusDataIterator.hasNext())
                         {
                             CensusData censusData = censusDataIterator.next();
-                            //System.out.println(stateCensusDataPojo.getStateName()+"----"+censusData.getStateName());
                             if (stateCensusDataPojo.getStateName().equals(censusData.getStateName()))
                              {
                                  stateCensusDataPojo.setAreaInSqKm(censusData.getAreaInSqKm());
                                  stateCensusDataPojo.setPopulation(censusData.getPopulation());
                                  stateCensusDataPojo.setDensityPerSqKm(censusData.getDensityPerSqKm());
-
                                  stateCensusDataPojos.add(stateCensusDataPojo);
                                  stateCensusDataDictionary.put(stateCensusDataPojo.getStateName(),stateCensusDataPojo);
-
-                                 /*System.out.println("------------------");
-                                 System.out.println(stateCensusDataPojo.getStateName()+" "+stateCensusDataPojo.getSrNo()+" "+stateCensusDataPojo.getStateCode()+" "+stateCensusDataPojo.getTIN());
-                                 System.out.println(stateCensusDataPojo.getPopulation()+" "+stateCensusDataPojo.getDensityPerSqKm()+" "+stateCensusDataPojo.getAreaInSqKm());
-                                 System.out.println("------------------");
-                                 */break;
+                                 break;
                              }
-
                 }
-
             }
             for (StateCensusDataPojo person : stateCensusDataPojos) {
                 for (StateCensusDataPojo person2 : stateCensusDataPojos) {
@@ -59,11 +49,9 @@ public class StateCensusData {
                 StateCensusDataPojo stateCensusDataPojo = iterator.next();
                 System.out.println(stateCensusDataPojo.getStateName());
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
 }
