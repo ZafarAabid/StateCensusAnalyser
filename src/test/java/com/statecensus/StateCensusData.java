@@ -9,29 +9,26 @@ public class StateCensusData {
         CSVState csvStates = new CSVState();
         CensusData censusDataa = new CensusData();
         StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
-        StateCensusDataPojo censusDataPojo=new StateCensusDataPojo();
+        StateCensusDataPojo censusDataPojo = new StateCensusDataPojo();
         List<StateCensusDataPojo> stateCensusDataPojos = new ArrayList();
-        Map<String,StateCensusDataPojo> stateCensusDataDictionary = new HashMap<>();
+        Map<String, StateCensusDataPojo> stateCensusDataDictionary = new HashMap<>();
 
         try {
-            Iterator<StateCensusDataPojo> stateCensusDataPojoIterator=stateCensusAnalyser.createBuilder("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/StateCode.csv",StateCensusDataPojo.class);
-            Iterator<CensusData> censusDataIterator=stateCensusAnalyser.createBuilder("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/StateCensusData.csv",CensusData.class);
-                while (stateCensusDataPojoIterator.hasNext())
-                {
-                    StateCensusDataPojo stateCensusDataPojo = stateCensusDataPojoIterator.next();
-                    censusDataIterator=stateCensusAnalyser.createBuilder("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/StateCensusData.csv",CensusData.class);
-                    while (censusDataIterator.hasNext())
-                        {
-                            CensusData censusData = censusDataIterator.next();
-                            if (stateCensusDataPojo.getStateName().equals(censusData.getStateName()))
-                             {
-                                 stateCensusDataPojo.setAreaInSqKm(censusData.getAreaInSqKm());
-                                 stateCensusDataPojo.setPopulation(censusData.getPopulation());
-                                 stateCensusDataPojo.setDensityPerSqKm(censusData.getDensityPerSqKm());
-                                 stateCensusDataPojos.add(stateCensusDataPojo);
-                                 stateCensusDataDictionary.put(stateCensusDataPojo.getStateName(),stateCensusDataPojo);
-                                 break;
-                             }
+            Iterator<StateCensusDataPojo> stateCensusDataPojoIterator = stateCensusAnalyser.createBuilder("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/StateCode.csv", StateCensusDataPojo.class);
+            Iterator<CensusData> censusDataIterator = stateCensusAnalyser.createBuilder("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/StateCensusData.csv", CensusData.class);
+            while (stateCensusDataPojoIterator.hasNext()) {
+                StateCensusDataPojo stateCensusDataPojo = stateCensusDataPojoIterator.next();
+                censusDataIterator = stateCensusAnalyser.createBuilder("/home/user/workspace/IndianStateCensusAnalyser/src/main/resources/StateCensusData.csv", CensusData.class);
+                while (censusDataIterator.hasNext()) {
+                    CensusData censusData = censusDataIterator.next();
+                    if (stateCensusDataPojo.getStateName().equals(censusData.getStateName())) {
+                        stateCensusDataPojo.setAreaInSqKm(censusData.getAreaInSqKm());
+                        stateCensusDataPojo.setPopulation(censusData.getPopulation());
+                        stateCensusDataPojo.setDensityPerSqKm(censusData.getDensityPerSqKm());
+                        stateCensusDataPojos.add(stateCensusDataPojo);
+                        stateCensusDataDictionary.put(stateCensusDataPojo.getStateName(), stateCensusDataPojo);
+                        break;
+                    }
                 }
             }
             for (StateCensusDataPojo person : stateCensusDataPojos) {
@@ -43,9 +40,8 @@ public class StateCensusData {
                     }
                 }
             }
-            Iterator<StateCensusDataPojo> iterator =stateCensusDataPojos.iterator();
-            while(iterator.hasNext())
-            {
+            Iterator<StateCensusDataPojo> iterator = stateCensusDataPojos.iterator();
+            while (iterator.hasNext()) {
                 StateCensusDataPojo stateCensusDataPojo = iterator.next();
                 System.out.println(stateCensusDataPojo.getStateName());
             }
